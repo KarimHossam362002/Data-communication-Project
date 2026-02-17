@@ -34,14 +34,16 @@ The server:
 # 📥 HTTP Request Validation
 
 Each request must include:
-
+```
 Method URI HTTPVersion
 Host: example.com
-
+```
 Validation Rules:
 
 - Single space between:
+```
       Method URI HTTPVersion
+```
 - Blank line separating headers and body
 - Valid URI format
 - Must contain:
@@ -50,9 +52,9 @@ Validation Rules:
       Blank Line
 
 If validation fails:
-
+```
 HTTP/1.1 400 Bad Request
-
+```
 Loads:
 BadRequest.html
 
@@ -63,30 +65,32 @@ BadRequest.html
 The server uses Configuration.RootPath.
 
 Example:
+```
 
 Configuration.RootPath = "c:\inetpub\wwwroot\fcis1"
 URI = "/aboutus.html"
-
+```
 Mapped physical path becomes:
-
+```
 c:\inetpub\wwwroot\fcis1\aboutus.html
-
+```
 ---
 
 # 🔁 Redirection (301)
 
 If URI exists in:
-
+```
 Configuration.RedirectionRules
-
+```
 Server returns:
-
+```
 HTTP/1.1 301 Moved Permanently
 Location: /newpage.html
-
+```
 Response body loads:
+```
 redirect.html
-
+```
 ---
 
 # ❌ Error Handling
@@ -94,44 +98,47 @@ redirect.html
 ## 404 Not Found
 
 If file does not exist:
-
+```
 HTTP/1.1 404 Not Found
-
+```
 Loads:
+```
 NotFound.html
-
+```
 ---
 
 ## 400 Bad Request
 
 If parsing fails:
-
+```
 HTTP/1.1 400 Bad Request
-
+```
 Loads:
+```
 BadRequest.html
-
+```
 ---
 
 ## 500 Internal Server Error
 
 If unexpected exception occurs:
-
+```
 HTTP/1.1 500 Internal Server Error
-
+```
 Loads:
+```
 InternalError.html
-
+```
 ---
 
 # 📤 HTTP Response Headers
 
 Each response includes:
-
+```
 Content-Type: text/html
 Content-Length: <length_of_file>
 Date: <current server datetime>
-
+```
 Location header included only in case of redirection.
 
 ---
@@ -156,17 +163,21 @@ Ensure the server is running before testing.
 # 🌍 Browser Testing
 
 Test using:
-
+```
 http://localhost:8000/aboutus2.html
+```
 -> Displays aboutus2.html
-
+```
 http://localhost:8000/aboutus.html
+```
 -> Redirects to aboutus2.html
-
+```
 http://localhost:8000/main.html
+```
 -> Displays main page
-
+```
 http://localhost:8000/blabla.html
+```
 -> Displays 404 page
 
 ---
