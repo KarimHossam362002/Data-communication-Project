@@ -139,12 +139,15 @@ Location header included only in case of redirection.
 # ▶️ Running the Server
 
 1) Compile the project (example in C):
+```
 
 gcc server.c -o server -pthread
+```
 
 2) Run:
-
+```
 ./server
+```
 
 Ensure the server is running before testing.
 
@@ -183,6 +186,7 @@ http://localhost:8000/blabla.html
 ---
 
 # 🏗️ System Architecture
+```
 
 Client (Browser)
         |
@@ -197,7 +201,7 @@ Create Thread
         |
         v
 Parse -> Validate -> Map -> Respond
-
+```
 ---
 
 # 📌 Notes
